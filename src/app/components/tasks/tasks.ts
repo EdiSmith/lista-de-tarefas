@@ -5,10 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TaskItem } from "../../component/task-item/task-item";
+import { AddTask } from '../add-task/add-task';
 
 @Component({
   selector: 'app-tasks',
-  imports: [CommonModule, TaskItem],
+  imports: [CommonModule, TaskItem, AddTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss'
 })
@@ -30,7 +31,7 @@ export class Tasks implements OnInit {
 
   deleteTask(tarefa:Tarefa){
     this.taskService.deleteTask(tarefa).subscribe(()=>
-      (this.tarefas =this.tarefas.filter((t)=> tarefa.id == tarefa.id)));
+      (this.tarefas =this.tarefas.filter((t)=> tarefa.id !== tarefa.id)));
   }
 
   taggleConcluido(tarefa: Tarefa){
@@ -38,4 +39,10 @@ export class Tasks implements OnInit {
     this.taskService.updateTask(tarefa).subscribe();
   }
 
+  AddTask(tarefa: Tarefa){
+    this.taskService.addTask(tarefa).subscribe(()=>{
+      this.tarefas.push(tarefa);
+
+    })
+  }
 }

@@ -2,13 +2,13 @@
   "tasks": [
     {
       "id": "1",
-      "tarefa": "Estudar C#",
-      "categoria": "Falculdade",
+      "tarefa": "Estudar Angular",
+      "categoria": "Trabalho",
       "concluido": false
     },
     {
       "id": "2",
-      "tarefa": "Estudar Angular",
+      "tarefa": "Estudar C#",
       "categoria": "Trabalho",
       "concluido": false
     }
